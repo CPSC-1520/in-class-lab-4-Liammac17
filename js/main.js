@@ -1,6 +1,23 @@
 
 // Enter your code below.
 
+const form = document.querySelector(".new-order-form")
+form.addEventListener("submit", function(e) {
+  e.preventDefault()
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // functions needed for assessment (do not change.)
 
