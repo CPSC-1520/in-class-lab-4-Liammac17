@@ -1,10 +1,45 @@
 
 // Enter your code below.
 
-const form = document.querySelector(".new-order-form")
+const form = document.querySelector("new-order-form")
 form.addEventListener("submit", function(e) {
   e.preventDefault()
+
+  const orderItemName=e.target.elements["order-item-name"].value.trim()
+  const orderItemPrice=e.target.elements["order-item-price"].value
+  const orderSize=e.target.elements["order-size"].value
+
+  let isFormValid=true
+
+  if(orderItemName === "" || orderItemName==null ){
+    e.target.elements["item-name"].classList.add("is-invalid")
+    isFormValid = false
+  } else{
+    e.target.elements["item-name"].classList.remove("is-invalid")
+  }
+
+  if(orderItemPrice === "" || orderItemPrice > 5 ){
+    e.target.elements["order-item-price"].classList.add("is-invalid")
+    isFormValid = false
+  } else {
+    e.target.elements["order-item-price"].classList.remove("is-invalid")
+  } 
+
+  if(orderSize === ""){
+    e.target.elements["order-size"].classList.add("is-invalid")
+    isFormValid = false
+  } else {
+    e.target.elements["order-size"].classList.remove("is-invalid")
+  } 
+
+  if (isFormValid){
+    addOrderItem(orderItemName,orderItemPrice,orderSize)
+    form.reset()
+  }
+
+  
 })
+
 
 
 
